@@ -25,6 +25,7 @@ editUser={};
   }
   createUser(){
     this.conection.post(this.newUser).subscribe((data)=>{
+    this.newUser={};
     this.getUser();
     console.log(data);
     });
