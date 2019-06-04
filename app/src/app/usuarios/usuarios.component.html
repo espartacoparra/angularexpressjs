@@ -1,0 +1,70 @@
+<div class="container">
+ 
+<br>
+  <div class="row">
+    <div class="col-4">
+        <h4 class="">Registar Usuarios</h4>
+    
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="newUser.name" aria-describedby="emailHelp" placeholder="Ingresa el nombre">
+        </div>
+        <div class="form-group">
+          <label for="lastname">Apellido</label>
+          <input type="text" class="form-control" id="lastname" [(ngModel)]="newUser.lastname"  aria-describedby="emailHelp" placeholder="Ingresa el apellido">
+        </div>
+        <div class="form-group">
+          <label for="cedula">Cedula</label>
+          <input type="text" class="form-control" id="cedula" [(ngModel)]="newUser.cedula"  aria-describedby="emailHelp" placeholder="Ingresa la cedula">
+        </div>
+        <div class="form-group">
+          <label for="address">Dirección</label>
+          <input type="text" class="form-control" id="address" [(ngModel)]="newUser.address"  aria-describedby="emailHelp" placeholder="Ingresa la dirección">
+        </div>
+        <div class="form-group form-check">
+          <input type="radio" name="gender" value="m" [(ngModel)]="newUser.gender"  class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Maculino</label>
+        </div>
+        <div class="form-group form-check">
+          <input type="radio" name="gender" value="f" [(ngModel)]="newUser.gender"  class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Femenino</label>
+        </div>
+        <button type="submit" (click)="createUser()" class="btn btn-success">Registrar</button>
+     
+    </div>
+    <div class="col-8">
+        <h4>lista de usuarios registrados </h4>
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.cedula}}</td>
+                <td>{{user.gender}}</td>
+                <td><div class="dropdown open">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                        Dropdown
+                      </button>
+                  <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <button class="dropdown-item" (click)="deleteUser(user.id)" >Eliminar</button>
+                    <button class="dropdown-item" (click)="editUserInput(user)" >Editar</button>
+                  </div>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
